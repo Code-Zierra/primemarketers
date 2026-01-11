@@ -81,7 +81,7 @@ A modern, responsive marketing agency website with full e-commerce functionality
 
 1. **Clone/Download the project:**
 ```bash
-git clone https://github.com/yourusername/primemarketers.git
+git clone https://github.com/Code-Zierra/primemarketers.git
 cd primemarketers
 ```
 
