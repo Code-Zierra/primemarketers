@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | PrimeMarketers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-chart-line me-2"></i>PrimeMarketers
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Hero -->
+    <section class="bg-primary text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Your Shopping Cart</h1>
+                    <p class="lead">Review your selected products and services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4">Cart Items</h4>
+                            <div id="cartItems">
+                                <!-- Cart items will be loaded here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="products.html" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                        </a>
+                        <button id="clearCart" class="btn btn-outline-danger">
+                            <i class="fas fa-trash me-2"></i>Clear Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4">Order Summary</h4>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span>$<span id="subtotal">0.00</span></span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax (10%):</span>
+                                <span>$<span id="tax">0.00</span></span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Shipping:</span>
+                                <span class="text-success">FREE</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="d-flex justify-content-between mb-4">
+                                <h5>Total:</h5>
+                                <h5>$<span id="cartTotal">0.00</span></h5>
+                            </div>
+                            
+                            <a href="order.html" class="btn btn-primary btn-lg w-100 mb-3">
+                                Proceed to Checkout
+                            </a>
+                            
+                            <div class="text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard" height="40" class="me-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" height="40" class="me-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" height="40">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Promo Code -->
+                    <div class="card border-0 shadow-sm mt-4">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-3">Promo Code</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter promo code" id="promoCode">
+                                <button class="btn btn-outline-primary" type="button" id="applyPromo">Apply</button>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-muted">Try: PRIME10 for 10% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">You Might Also Like</h2>
+                <p class="text-muted">Popular products other customers bought</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card product-card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h6 class="card-title">Email Marketing Tool</h6>
+                            <p class="text-muted small">Automated email campaigns</p>
+                            <h6 class="text-primary">$199</h6>
+                            <button class="btn btn-sm btn-outline-primary w-100 mt-2 add-to-cart" data-id="rec1" data-name="Email Marketing Tool" data-price="199">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card product-card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h6 class="card-title">Content Calendar Pro</h6>
+                            <p class="text-muted small">Plan and schedule content</p>
+                            <h6 class="text-primary">$149</h6>
+                            <button class="btn btn-sm btn-outline-primary w-100 mt-2 add-to-cart" data-id="rec2" data-name="Content Calendar Pro" data-price="149">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card product-card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h6 class="card-title">Analytics Dashboard</h6>
+                            <p class="text-muted small">Track marketing performance</p>
+                            <h6 class="text-primary">$299</h6>
+                            <button class="btn btn-sm btn-outline-primary w-100 mt-2 add-to-cart" data-id="rec3" data-name="Analytics Dashboard" data-price="299">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card product-card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h6 class="card-title">SEO Audit Tool</h6>
+                            <p class="text-muted small">Comprehensive site analysis</p>
+                            <h6 class="text-primary">$249</h6>
+                            <button class="btn btn-sm btn-outline-primary w-100 mt-2 add-to-cart" data-id="rec4" data-name="SEO Audit Tool" data-price="249">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-4">PrimeMarketers</h5>
+                    <p>Professional marketing solutions for businesses looking to scale and succeed in the digital age.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="products.html" class="text-white text-decoration-none">Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Marketing St, Business City</p>
+                    <p><i class="fas fa-phone me-2"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@primemarketers.com</p>
+                </div>
+            </div>
+            <hr class="bg-light my-4">
+            <div class="text-center">
+                <p>&copy; 2024 PrimeMarketers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Load cart items on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCartItems();
+            updateSummary();
+            
+            // Clear cart button
+            document.getElementById('clearCart').addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    cartManager.clearCart();
+                    loadCartItems();
+                    updateSummary();
+                }
+            });
+            
+            // Promo code
+            document.getElementById('applyPromo').addEventListener('click', function() {
+                const promoCode = document.getElementById('promoCode').value;
+                if (promoCode.toUpperCase() === 'PRIME10') {
+                    alert('Promo code applied! 10% discount will be applied at checkout.');
+                } else {
+                    alert('Invalid promo code. Try PRIME10 for 10% off.');
+                }
+            });
+            
+            // Add to cart for recommended products
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const product = {
+                        id: e.target.dataset.id,
+                        name: e.target.dataset.name,
+                        price: parseFloat(e.target.dataset.price)
+                    };
+                    cartManager.addToCart(product);
+                    loadCartItems();
+                    updateSummary();
+                });
+            });
+        });
+        
+        function updateSummary() {
+            const subtotal = cartManager.getTotal();
+            const tax = subtotal * 0.10;
+            const total = subtotal + tax;
+            
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('tax').textContent = tax.toFixed(2);
+            document.getElementById('cartTotal').textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
